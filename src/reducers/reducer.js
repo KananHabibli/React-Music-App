@@ -2,7 +2,7 @@ import * as actionTypes from './actions'
 
 const defaultState = {
     songlist: [],
-    url: '',
+    nextUrl: '',
     currentSong: '',
     coverImage: ''
 }
@@ -13,13 +13,19 @@ function reducer(state = defaultState, action){
             return {
                 ...state,
                 songlist: action.payload.data,
-                url: action.payload.next
+                nextUrl: action.payload.next
             }
         case actionTypes.GET_CURRENTSONG:
             return {
                 ...state,
                 currentSong: action.payload.currentSong,
                 coverImage: action.payload.coverImage
+            }
+        case actionTypes.FETCH_NEXT:
+            return {
+                ...state,
+                songlist: [ ...state.songlist, ...action.payload.data],
+                nextUrl: action.payload.next
             }
         default: 
             console.log('reducer called')

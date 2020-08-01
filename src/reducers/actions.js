@@ -1,2 +1,3 @@
 export const FETCH_SONGS = 'FETCH_SONGS'
 export const GET_CURRENTSONG = 'GET_CURRENTSONG'
+export const FETCH_NEXT = 'FETCH_NEXT'

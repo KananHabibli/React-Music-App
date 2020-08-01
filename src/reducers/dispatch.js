@@ -1,4 +1,4 @@
-import { FETCH_SONGS, GET_CURRENTSONG } from './actions'
+import { FETCH_SONGS, GET_CURRENTSONG, FETCH_NEXT } from './actions'
 import axios from 'axios'
 
 
@@ -17,12 +17,7 @@ export const fetchSongs = artist => {
             console.log(res)
             dispatch({
                 type: FETCH_SONGS,
-                payload: res.data,
-                meta : {
-                    debounce: {
-                        time: 1000
-                    }
-                }
+                payload: res.data
             })
         })
     }
@@ -37,4 +32,18 @@ export const play = (currentSong, coverImage) => {
             coverImage
         }
     })
+}
+
+
+export const fetchNext = (url) => {
+    return dispatch => axios.get(`https://cors-anywhere.herokuapp.com/${url}`)
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: FETCH_NEXT,
+                payload: res.data
+            })
+        })
+        .catch(error => console.log(error))
+    
 }

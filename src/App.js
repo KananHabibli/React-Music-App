@@ -4,7 +4,7 @@ import Search from './components/Search'
 import CoverImage from './components/CoverImage'
 import Mp3Player from './components/Mp3Player'
 import Songlist from './components/Songlist'
-
+import Next from './components/Next'
 import './assets/css/style.css'
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
               <Mp3Player />
           </div>
           <Songlist />
-        {/*  <a className="btn btn-outline-info btn-block w-50 mx-auto my-5" href={this.state.loadMore}>Load More</a> */}
+          <Next />
       </div>
     )
   }
